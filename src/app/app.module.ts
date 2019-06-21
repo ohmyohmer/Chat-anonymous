@@ -9,11 +9,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import {firebaseConfig} from "../environments/firebaseConf";
-import {AuthService} from "./core/services/auth.service";
+import {firebaseConfig} from '../environments/firebaseConf';
+import {AuthService} from './core/services/auth.service';
 import { ChatComponent } from './chat/chat.component';
-import {ChatService} from "./core/services/chat.service";
-import {RouterModule} from "@angular/router";
+import {ChatService} from './core/services/chat.service';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
