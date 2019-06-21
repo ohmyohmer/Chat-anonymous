@@ -11,7 +11,7 @@
     "test:app:watch": "ng test angularexampleapp --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",
-    "build:prod:en": "ng build --configuration=production-en",
+    "build:prod:en": "ng build --configuration=production",
     "build:prod:es": "ng build --configuration=production-es",
     "build:server:prod:en": "ng run angularexampleapp:server:production-en",
     "build:server:prod:es": "ng run angularexampleapp:server:production-es",

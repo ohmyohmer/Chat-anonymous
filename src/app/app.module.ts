@@ -14,6 +14,7 @@ import {AuthService} from './core/services/auth.service';
 import { ChatComponent } from './chat/chat.component';
 import {ChatService} from './core/services/chat.service';
 import {RouterModule} from '@angular/router';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {RouterModule} from '@angular/router';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    SharedModule
   ],
   providers: [
     AuthService,

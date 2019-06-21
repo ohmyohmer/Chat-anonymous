@@ -1,4 +1,4 @@
-import {DateTimeFormatPipe} from "../../shared/pipe/date-time-format-pipe";
+import {DateTimeFormatPipe} from "../../shared/pipe/date-time-format";
 
 //Chat class
 export class Chat {

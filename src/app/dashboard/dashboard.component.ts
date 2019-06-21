@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   chats: any[];
 
   constructor(private chatService: ChatService,
-              private authService: AuthService,
+              public authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
