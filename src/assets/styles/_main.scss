@@ -1,0 +1,19 @@
+//////////////
+// SCAFFOLD //
+//////////////
+body {
+	min-width: 300px;
+    font-family: $font-primary;
+    background-image: url(assets/images/careers_skinning.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img {
+	max-width: 100%;
+}
+textarea {
+	resize: vertical;
+}
+.main-container {
+
+}

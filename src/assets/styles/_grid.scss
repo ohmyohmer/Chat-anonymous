@@ -1,0 +1,251 @@
+//////////////
+// LAYOUTS //
+//////////////
+// rw == Row, cl = Column
+
+//Variables 
+$screen-var: 1;
+$screen-size: 1;
+$screen-width: 1440px;
+$screen-padding: 15px;
+$site-container: 100%;
+$site-wrapper: 960px;
+
+.rw,
+.cl-margin {
+    display: block;
+    font-size: 0;
+
+    .cl {
+        display: inline-block;
+        padding: 0 fluidity(15px, $screen-width);
+        vertical-align: top;
+        font-size: 14px;
+
+        &.middle {
+            vertical-align: middle;
+        }
+
+        &.not-padded {
+            padding: 0;
+        }
+    }
+
+    &.rw-full {
+        margin-right: fluidity(-15px, $screen-width);
+        margin-left: fluidity(-15px, $screen-width);
+    }
+
+    &.cl-padded {
+        .cl {
+            padding: 0 fluidity(15px, $screen-width) fluidity(30px, $screen-width) fluidity(15px, $screen-width);
+        }
+    }
+
+    &.cl-no-margin {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.cl {
+    &-1 {
+        >.cl {
+            width: percentage($screen-var/1);
+        }
+    }
+
+    &-2 {
+        >.cl {
+            width: percentage($screen-var/2);
+        }
+    }
+
+    &-3 {
+        >.cl {
+            width: percentage($screen-var/3);
+        }
+    }
+
+    &-4 {
+        >.cl {
+            width: percentage($screen-var/4);
+        }
+    }
+
+    &-5 {
+        >.cl {
+            width: percentage($screen-var/5);
+        }
+    }
+
+    &-6 {
+        >.cl {
+            width: percentage($screen-var/6);
+        }
+    }
+
+    &-7 {
+        >.cl {
+            width: percentage($screen-var/7);
+        }
+    }
+
+    &-8 {
+        >.cl {
+            width: percentage($screen-var/8);
+        }
+    }
+
+    &-9 {
+        >.cl {
+            width: percentage($screen-var/9);
+        }
+    }
+
+    &-10 {
+        >.cl {
+            width: percentage($screen-var/10);
+        }
+    }
+
+    &-11 {
+        >.cl {
+            width: percentage($screen-var/11);
+        }
+    }
+
+    &-12 {
+        >.cl {
+            width: percentage($screen-var/12);
+        }
+    }
+
+}
+
+$test-padding: 15px;
+$test2: 1400px;
+$test: $test2 - $test-padding;
+
+.cl-margin {
+    &-1 {
+        .cl {
+            width: percentage($test/$test2);
+            margin: 0 percentage($test-padding/$test2);
+            //width: percentage(1370px/1400px);
+            //width: percentage($screen-width - $screen-padding/$screen-width);
+            margin: 0 percentage(15px/1400px);
+        }
+    }
+
+    &-2 {
+        .cl {
+            width: percentage(670px/1400px);
+            margin: 0 percentage(15px/1400px);
+        }
+    }
+
+    &-3 {
+        .cl {
+            width: percentage(436.66px/1400px);
+            margin: 0 percentage(15px/1400px);
+        }
+    }
+
+    &-4 {
+        .cl {
+            width: percentage(320px/1400px);
+            margin: 0 percentage(15px/1400px);
+        }
+    }
+}
+
+.cl {
+
+    //Grid cell
+    &.cl-1 {
+        width: percentage(116.66px/1400px);
+    }
+
+    &.cl-2 {
+        width: percentage(233.33px/1400px);
+    }
+
+    &.cl-3 {
+        width: percentage(350px/1400px);
+    }
+
+    &.cl-4 {
+        width: percentage(466.66px/1400px);
+    }
+
+    &.cl-5 {
+        width: percentage(583.33px/1400px);
+    }
+
+    &.cl-6 {
+        width: percentage(700px/1400px);
+    }
+
+    &.cl-seven {
+        width: percentage(816.8px/1400px);
+    }
+
+    &.cl-7 {
+        width: percentage(816.70px/1400px);
+    }
+
+    &.cl-8 {
+        width: percentage(933.33px/1400px);
+    }
+
+    &.cl-9 {
+        width: percentage(1050px/1400px);
+    }
+
+    &.cl-10 {
+        width: percentage(1166.66px/1400px);
+    }
+
+    &.cl-11 {
+        width: percentage(1283px/1400px);
+    }
+
+    &.cl-12 {
+        width: percentage(1400px/1400px);
+    }
+}
+
+.cl-style {
+    .cl {
+        padding: 10px;
+        border-top: solid 1px $light-gray;
+        border-right: solid 1px $light-gray;
+        border-bottom: solid 1px $light-gray;
+        text-align: center;
+
+        &:nth-child(1) {
+            border-left: solid 1px $light-gray;
+        }
+
+        &:last-child() {
+            border-right: solid 1px $light-gray;
+        }
+    }
+}
+
+.adjusted-margin {
+    margin-left: fluidity(15px, $screen-width);
+    margin-right: fluidity(15px, $screen-width);
+}
+
+.site {
+    &-container {
+        width: $site-container;
+    }
+
+    &-wrapper {
+        max-width: $site-wrapper;
+        margin: 0 auto;
+    }
+}

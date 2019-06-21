@@ -1,0 +1,51 @@
+$screen-size: 1440;
+
+
+
+.flex {
+    display: flex;
+    .fl {
+        width: 100%;
+        &-1 {
+        	width: percentage(1/$screen-size)px;
+        }
+        &-2 {
+        	width: percentage(11/$screen-size)px;
+        }
+        &-3 {
+        	width: percentage(10/$screen-size)px;
+        }
+        &-4 { 
+        	width: percentage(9/$screen-size)px;
+        }
+        &-5 {
+        	width: percentage(8/$screen-size)px;
+        }
+        &-6 {
+        	width: percentage(7/$screen-size)px;
+        }
+        &-7 {
+        	width: percentage(6/$screen-size)px;
+        }
+        &-8 {
+        	width: percentage(5/$screen-size)px;
+        }
+        &-9 {
+        	width: percentage(4/$screen-size)px;
+        }
+        &-10 {
+        	width: percentage(3/$screen-size)px;
+        }
+        &-11 {
+        	width: percentage(2/$screen-size)px;
+        }
+        &-12 {
+        	width: percentage(1/$screen-size)px;
+        }
+    }
+    .fl-style {
+        padding: 10px;
+        border: solid 1px rgba(0, 0, 0, 0.14);
+        text-align: center;
+    }
+}

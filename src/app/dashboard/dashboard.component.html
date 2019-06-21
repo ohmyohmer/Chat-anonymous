@@ -1,0 +1,45 @@
+<!-- Chat -->
+<div class="main-sidebar sidebar-chat" id="sidebarChat">
+  <div class="sidebar-header">
+  	<div class="left">
+  		<div class="user-wrapper" [style.opacity]="!authService.authenticated ? '0' : '1' ">
+  			<span class="user-image">
+	        	<img src="{{profileImage}}" alt="Avatar">
+	      	</span>
+  			<span class="username">@{{username}}</span>
+  		</div>
+  	</div>
+  	<div class="right">
+  		<img src="assets/images/logo.png" alt="Hello Kapamilya" class="logo">
+  	</div>
+  </div>
+  <div class="sidebar-body">
+    <div class="chat-convo tribe-chat active" id="tribeChat">
+      <div class="content" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+
+        <div class="message-container" [ngClass]="{'owner': isMyChat(message)}" *ngFor="let message of Messages">
+          <span class="username">{{message.user}}</span>
+          <div class="message-details">
+            <p>{{message.message}}</p>
+            <span class="time">{{ message.timestamp | date:'medium' }}</span>
+          </div>
+          <span class="user-image">
+            <img src="{{ message.image }}" alt="Avatar">
+          </span>
+        </div>
+
+      </div>
+
+      <div class="chat-form" *ngIf="!authService.authenticated">
+        <button class="btn btn-post" (click)="signInAnonymously()" style="width: -webkit-fill-available;">Login Anonymously</button>
+      </div>
+      <div class="chat-form" *ngIf="authService.authenticated">
+        <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (keyup.enter)="submitChatMessage()" [(ngModel)]="message">
+        <button class="btn btn-post" (click)="submitChatMessage()">Post</button>
+        <button class="btn btn-post" (click)="logout()">Logout</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /Chat -->
