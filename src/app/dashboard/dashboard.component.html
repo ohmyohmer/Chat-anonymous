@@ -16,7 +16,6 @@
   <div class="sidebar-body">
     <div class="chat-convo tribe-chat active" id="tribeChat">
       <div class="content" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-
         <div class="message-container" [ngClass]="{'owner': isMyChat(message)}" *ngFor="let message of Messages">
           <span class="username">{{message.user}}</span>
           <div class="message-details">
@@ -27,18 +26,16 @@
             <img src="{{ message.image }}" alt="Avatar">
           </span>
         </div>
-
       </div>
-
       <div class="chat-form" *ngIf="!authService.authenticated">
         <button class="btn btn-post" (click)="signInAnonymously()" style="width: -webkit-fill-available;">Login Anonymously</button>
       </div>
       <div class="chat-form" *ngIf="authService.authenticated">
-        <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (keyup.enter)="submitChatMessage()" [(ngModel)]="message">
+        <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (keyup.enter)="submitChatMessage()" (keyup)="isTyping()" [(ngModel)]="message">
         <button class="btn btn-post" (click)="submitChatMessage()">Post</button>
         <button class="btn btn-post" (click)="logout()">Logout</button>
       </div>
-
+      <div class="users-typing-message">{{chatUsersTypingMessage}}</div>
     </div>
   </div>
 </div>
