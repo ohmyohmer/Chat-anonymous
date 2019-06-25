@@ -4,7 +4,6 @@ import { AuthService} from "../core/services/auth.service";
 import { Router } from "@angular/router";
 import {Chat} from "../chat/chat";
 import * as firebase from 'firebase/app'
-import {isBoolean} from "util";
 
 @Component({
   selector: 'app-dashboard',
@@ -61,12 +60,12 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  isTyping(): void {
-    if (this.message) {
-      this.chatService.setChatUserIsTyping(this.getChatUser(), true);
-    } else {
-      this.chatService.setChatUserIsTyping(this.getChatUser(), false);
-    }
+  isTyping(event: boolean): void {
+    this.chatService.setChatUserIsTyping(this.getChatUser(), event);
+  }
+
+  fireTimeout(event: boolean): void {
+    setTimeout(() => this.chatService.setChatUserIsTyping(this.getChatUser(), event), 100);
   }
 
   get profileImage(): any {
@@ -102,9 +101,9 @@ export class DashboardComponent implements OnInit {
 
         if(this.chatUsersTyping && this.chatUsersTyping.length > 0) {
           if(this.chatUsersTyping.length > 3) {
-            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') +"...+"+(this.chatUsersTyping.length - 3)+ " is typing";
+            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') +"...+"+(this.chatUsersTyping.length - 3)+ " is typing...";
           } else {
-            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') + " is typing";
+            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') + " is typing...";
           }
         } else {
           this.chatUsersTypingMessage = null;

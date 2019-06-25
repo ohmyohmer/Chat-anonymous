@@ -31,11 +31,11 @@
         <button class="btn btn-post" (click)="signInAnonymously()" style="width: -webkit-fill-available;">Login Anonymously</button>
       </div>
       <div class="chat-form" *ngIf="authService.authenticated">
-        <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (keyup.enter)="submitChatMessage()" (keyup)="isTyping()" [(ngModel)]="message">
+        <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (focusin)="isTyping(true)" (focusout)="isTyping(false)" (keyup.enter)="submitChatMessage()" (keyup)="isTyping(true)" [(ngModel)]="message">
         <button class="btn btn-post" (click)="submitChatMessage()">Post</button>
         <button class="btn btn-post" (click)="logout()">Logout</button>
+        <div class="users-typing-message">{{chatUsersTypingMessage}}</div>
       </div>
-      <div class="users-typing-message">{{chatUsersTypingMessage}}</div>
     </div>
   </div>
 </div>
