@@ -101,7 +101,11 @@ export class DashboardComponent implements OnInit {
           .map(typingUsername => typingUsername['username']);
 
         if(this.chatUsersTyping && this.chatUsersTyping.length > 0) {
-          this.chatUsersTypingMessage = this.chatUsersTyping.join(',') + " is typing";
+          if(this.chatUsersTyping.length > 3) {
+            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') +"...+"+(this.chatUsersTyping.length - 3)+ " is typing";
+          } else {
+            this.chatUsersTypingMessage = this.chatUsersTyping.join(',') + " is typing";
+          }
         } else {
           this.chatUsersTypingMessage = null;
         }
