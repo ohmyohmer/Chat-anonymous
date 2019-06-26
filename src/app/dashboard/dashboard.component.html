@@ -5,13 +5,14 @@
       <img src="assets/images/logo.png" alt="Hello Kapamilya" class="logo">
     </div>
   	<div class="right">
-      <button class="btn btn-post" (click)="logout()">Logout <i class="la la-sign-out"></i></button>
-  		<div class="user-wrapper" [style.opacity]="!authService.authenticated ? '0' : '1' ">
+      <div [style.opacity]="!authService.authenticated ? '0' : '1' ">
+        <button class="btn btn-post" (click)="logout()">Logout <i class="la la-sign-out"></i></button>
+        <div class="user-wrapper">
   			<span class="user-image">
 	        	<img src="{{profileImage}}" alt="Avatar" title="{{username}}">
 	      	</span>
-  			<!--<span class="username">@{{username}}</span>-->
-  		</div>
+        </div>
+      </div>
   	</div>
   </div>
   <div class="sidebar-body">
