@@ -3,7 +3,6 @@ import { ChatService} from "../core/services/chat.service";
 import { AuthService} from "../core/services/auth.service";
 import { Router } from "@angular/router";
 import {Chat} from "../chat/chat";
-import * as firebase from 'firebase/app'
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +12,6 @@ import * as firebase from 'firebase/app'
 export class DashboardComponent implements OnInit {
   @Input()
   message: string = '';
-
   chat: Chat;
   chatUser: string;
   chatUsersTyping: string[];
@@ -25,6 +23,8 @@ export class DashboardComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.checkUserExpired();
+
     this.authService.getAuthState()
       .subscribe(() => {
         this.loadChats();
@@ -62,10 +62,6 @@ export class DashboardComponent implements OnInit {
 
   isTyping(event: boolean): void {
     this.chatService.setChatUserIsTyping(this.getChatUser(), event);
-  }
-
-  fireTimeout(event: boolean): void {
-    setTimeout(() => this.chatService.setChatUserIsTyping(this.getChatUser(), event), 100);
   }
 
   get profileImage(): any {
@@ -116,5 +112,10 @@ export class DashboardComponent implements OnInit {
       return localStorage.getItem('username') + "-" + localStorage.getItem('uuid').substring(0, 5);
     }
   }
+
+  private checkUserExpired() {
+    return this.authService.checkExpiryDate();
+  }
+
 }
 
