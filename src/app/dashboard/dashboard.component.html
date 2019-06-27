@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="chat-form" *ngIf="!authService.authenticated">
-        <button class="btn btn-post" (click)="signInAnonymously()" style="width: -webkit-fill-available;">Login Anonymously</button>
+        <button class="btn btn-block" (click)="signInAnonymously()" style="display: block;">Login Anonymously</button>
       </div>
       <div class="chat-form" *ngIf="authService.authenticated">
         <input maxlength="140" type="text" placeholder="Talk to your Kapamilya..." (focusin)="isTyping(true)" (focusout)="isTyping(false)" (keyup.enter)="submitChatMessage()" (keyup)="isTyping(true)" [(ngModel)]="message">

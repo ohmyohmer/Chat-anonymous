@@ -373,11 +373,12 @@ body {
         right: 0;
         bottom: 0;
         overflow-y: auto;
+        margin-bottom: 56px;
     }
 
     .message-container {
         opacity: 0;
-      
+
     }
     &.active {
         display: block;
@@ -423,6 +424,13 @@ body {
         font-size: 12px;
         padding: 0;
         @include borderradius(5px);
+    }
+    .btn-block {
+      display: none;
+      padding: 12px 15px;
+      margin-bottom: 0;
+      @include borderradius(5px);
+      font-size: 12px;
     }
     form {
         width: 100%;
